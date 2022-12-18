@@ -1,3 +1,11 @@
+# personal app 
+This is a [code-along](https://www.udemy.com/course/next-js-with-react-build-personal-app-blogs-portfolios/learn/lecture/34549602#overview) to learn Next.js in Dec 2022. It is a restart as I lost access to the previous work I'd done. 
+
+CSS: TailwindCSS
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
