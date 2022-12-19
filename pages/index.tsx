@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BlogList } from '../components/blogs';
 import PortfolioList from '../components/portfolios/portfolioList';
 import { BaseLayout } from '../components/layouts';
-import { getBlog, getBlogFileNames } from '../lib/md';
+import { getBlogs } from '../lib/md';
 
 const Home: NextPage = () => {
   return (
@@ -42,13 +42,9 @@ const Home: NextPage = () => {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const blogFileNames = getBlogFileNames();
+  const blogs = getBlogs();
 
-  blogFileNames.forEach((blogFileName) => {
-    const blog = getBlog(blogFileName);
-    console.log(blog);
-  })
-
+console.log(blogs)
   return {
     props: {}
   }

@@ -27,7 +27,19 @@ const getItemInPath = (filePath: string): MarkdownItem => {
   return blog;
  }
 
+ const getAllItems = (fileNames: string[]) => {
+  const items = fileNames.map((name) => getBlog(name));
+  return items;
+ }
+
+ const getBlogs = (): Blog[] => {
+  const names = getBlogFileNames();
+  return getAllItems(names);
+
+ }
+
  export {
   getBlog,
+  getBlogs,
   getBlogFileNames,
  }
