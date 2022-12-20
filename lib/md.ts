@@ -1,7 +1,7 @@
 import fs from "fs"
 import matter from "gray-matter";
 import {join }from "path"
-import { MarkdownItem } from "../interfaces/Markdown";
+import { MarkdownItem } from "@interfaces/Markdown";
 
 const getAllItems = (fileNames: string[], get: (name: string)=>MarkdownItem) => {
   const items = fileNames.map((name) => get(name));
