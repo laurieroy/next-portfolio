@@ -1,7 +1,14 @@
 import {  NextPage } from 'next/types'
- import { PageLayout } from '@components/layouts';
+import { PageLayout } from '@components/layouts';
+import { getBlogBySlug, getBlogsSlugs } from '@lib/blogs';
+import { Blog } from '@interfaces/Blog';
 
- const BlogDetail: NextPage = () => {
+
+type Props = {
+  blog: Blog
+}
+
+ const BlogDetail: NextPage<Props> = ({blog}) => {
    return (
      <>
        <PageLayout>
@@ -52,7 +59,7 @@ import {  NextPage } from 'next/types'
            {/* Blog Header Ends */}
            <article className="prose lg:prose-lg markdown-image-50">
              {/* Blog Content Here */}
-             Content Here
+             {blog.content}
            </article>
          </div>
        </PageLayout>
@@ -61,3 +68,24 @@ import {  NextPage } from 'next/types'
  }
 
  export default BlogDetail;
+
+ export const getStaticProps = (context: any) => {
+  const { slug } = context.params;
+  const blog = getBlogBySlug(slug);
+
+  return {
+    props: { blog }
+  }
+ }
+
+ export const getStaticPaths = ()  => {
+  const slugs = getBlogsSlugs();
+  const paths = slugs.map(slug => ({params: {slug}}))
+
+  console.log("---PATHS---")
+  console.log(paths);
+  return {
+    paths,
+    fallback: false
+  }
+ }
