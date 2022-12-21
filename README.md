@@ -1,8 +1,8 @@
 # personal app 
-This is a [code-along](https://www.udemy.com/course/next-js-with-react-build-personal-app-blogs-portfolios/learn/lecture/34549602#overview) by [Filip Jerga](https://academy.eincode.com) to learn Next.js in Dec 2022. It is a restart as I lost access to the previous work I'd done. 
+This is a [code-along](https://www.udemy.com/course/next-js-with-react-build-personal-app-blogs-portfolios/learn/lecture/34549602#overview) by [Filip Jerga](https://academy.eincode.com) to learn Next.js (13) in Dec 2022. It is a restart as I lost access to the previous work I'd done. 
 
 CSS: TailwindCSS
-
+search library: js-search
 
 
 
