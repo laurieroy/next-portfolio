@@ -47,8 +47,6 @@ const ContentSearch = () => {
     setResults(results);
   }
 
-
-
   return (
     <>
       <label htmlFor="search" className="sr-only">
