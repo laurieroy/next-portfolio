@@ -1,11 +1,11 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Link from "next/link";
-
 import { BlogList } from '@components/blogs';
 import PortfolioList from '@components/portfolios/portfolioList';
 import { BaseLayout } from '@components/layouts';
 import { getBlogs } from '@lib/blogs';
 import { Blog } from '@interfaces/Blog';
+import { saveSearchData } from '@lib/md';
 
 type Props = {
   blogs: Blog[]
@@ -48,6 +48,8 @@ const Home: NextPage<Props> = ({blogs}) => {
 
 export const getStaticProps: GetStaticProps = () => {
   const blogs = getBlogs();
+
+  saveSearchData(blogs);
 
   return {
     props: {blogs}
