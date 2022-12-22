@@ -1,19 +1,53 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 import { SearchContent } from "@interfaces/Markdown";
 import contentIndexer from "@lib/client/ContentIndexer";
+import { escape } from "querystring";
 
 
 const ContentSearch = () => { 
+  const ref = useRef<HTMLInputElement>(null);
   const [results, setResults] = useState<SearchContent[]>([]);
+  const [query, setQuery] = useState("");
 
+  const handleClickOutside = () => {
+    setResults([]);
+    setQuery("");
+  }
+
+  useEffect(() => {
+    const callback = (e: MouseEvent) => {
+      if (results.length > 0 && 
+        ref.current && 
+        !ref.current.contains(e.target as Node)) {
+        handleClickOutside();
+      }
+    }
+
+    const escapeKeyCallback = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && results.length > 0) {
+        handleClickOutside();
+      }
+    }
+
+    document.addEventListener("click", callback)
+    document.addEventListener("keydown", escapeKeyCallback)
+   
+    return () => {
+      document.removeEventListener("click", callback);
+      document.removeEventListener("keydown", escapeKeyCallback);
+    }
+  }, [results.length])
+  
   const performSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value }= e.target;
+    const { value } = e.target;
     const results = contentIndexer.search(value);
-    
+    setQuery(value);
     setResults(results);
   }
+
+
 
   return (
     <>
@@ -25,6 +59,8 @@ const ContentSearch = () => {
           <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
         </div>
         <input
+          ref={ref}
+          value={query}
           id="search-input"
           onChange={performSearch}
           autoComplete="off"
