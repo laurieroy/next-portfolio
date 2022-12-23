@@ -22,6 +22,7 @@ const getBlogBySlug = (slug: string) => {
 
   return getBlog(fileName);
 }
+
 const getBlogBySlugWithMarkdown = async (slug: string): Promise<Blog> => {
   const blog = getBlogBySlug(slug);
   blog.content = await markdowToHtml(blog.content);
