@@ -1,5 +1,5 @@
 import { Blog } from "@interfaces/Blog";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 
 type Props = {

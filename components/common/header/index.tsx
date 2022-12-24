@@ -7,7 +7,7 @@ const Header = () => {
           <span className="block text-indigo-600 xl:inline">little space</span>
         </h1>
         <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-          My name is XY and I am a software developer. Feel free to check my working experience and blogs about tech topics.
+          My name is Laurie Roy and I am a software developer. Feel free to check my working experience and blogs about tech topics.
         </p>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
           <div className="rounded-md shadow">
