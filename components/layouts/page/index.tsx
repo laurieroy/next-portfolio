@@ -9,7 +9,7 @@ type Props = {
 const PageLayout: FunctionComponent<PropsWithChildren<Props>> = ({children, pageTitle}) => {
   return ( 
     <>
-      <div className="page-layout mx-auto max-w-7xl px-4 space-y-8 sm:px-6 lg:px-8">
+      <div className="page-layout mx-auto max-w-7xl px-4 pb-8 space-y-8 sm:px-6 lg:px-8">
         <Head>
           <title>{pageTitle}</title>
           <meta name="description" content="Laurie Roy - portfolio and blog site" />

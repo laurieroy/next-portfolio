@@ -1,10 +1,8 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-
+import { useRouter } from "next/router";
 import { SearchContent } from "@interfaces/Markdown";
 import contentIndexer from "@lib/client/ContentIndexer";
-import { escape } from "querystring";
-import { useRouter } from "next/router";
 
 
 const ContentSearch = () => { 
