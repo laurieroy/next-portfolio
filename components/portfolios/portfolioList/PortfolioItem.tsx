@@ -1,4 +1,5 @@
 import { Portfolio } from "@interfaces/Portfolio";
+import { shortify } from "@lib/client/utils";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { FunctionComponent } from "react";
@@ -22,11 +23,11 @@ export const PortfolioItem: FunctionComponent<Props> = ({portfolio}) => {
         <Link legacyBehavior href={`/portfolios/${portfolio.slug}`}>
           <a>
             <span className="absolute inset-0" />
-            { portfolio.title }
+            { shortify(portfolio.title) }
           </a>
         </Link>
       </h3>
-      <p className="text-base font-semibold text-gray-900">{ portfolio.description }</p>
+      <p className="text-base font-semibold text-gray-900">{ shortify(portfolio.description) }</p>
     </div>
  );
 }
